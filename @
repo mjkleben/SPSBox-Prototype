@@ -45,48 +45,11 @@ h1{
 #event1{
 	height: 13%;
 	width: 85%;
-	display: block;
-	margin: auto;
-	background-color: white;
-}
-#event2{
-	height: 13%;
-	width: 85%;
-	display: block;
-	margin: auto;
-	background-color: gray;
-}
-#event3{
-	height: 13%;
-	width: 85%;
-	display: block;
-	margin: auto;
-	background-color: white;
-}
-#event4{
-	height: 13%;
-	width: 85%;
-	display: block;
-	margin: auto;
-	background-color: gray;
-}
-#event5{
-	height: 13%;
-	width: 85%;
-	display: block;
-	margin: auto;
-	background-color: white;
-}
+	display: flex;
+	justify-content: center;
+	background-color: black;
 
-#event6{
-	height: 13%;
-	width: 85%;
-	display: block;
-	margin: auto;
-	background-color: gray;
 }
-
-
 
 .buttons_wrapper{
 	padding-top: 3%;
