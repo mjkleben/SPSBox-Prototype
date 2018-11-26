@@ -1,5 +1,4 @@
-<!DOCTYPE HTML>
-
+<!DOCTYPE HTML> 
 <html>
 	<head>
 		<title>SPS Box</title>
@@ -8,25 +7,12 @@
 		<link rel="stylesheet" href="index.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	</head>
-	<script>
-		$(window).load(function () {
-		    $(".trigger_popup_fricc").click(function(){
-		       $('.hover_bkgr_fricc').show();
-		    });
-		    $('.hover_bkgr_fricc').click(function(){
-			$('.hover_bkgr_fricc').hide();
-		    });
-		    $('.popupCloseButton').click(function(){
-			$('.hover_bkgr_fricc').hide();
-		    });
-		});
-	</script>
 	<body
 		<div class="container">
 			<nav>
 				<ul>
-					<li>Buy</li>
-					<li>About</li>
+					<li><a href="#">Buy</a></li>
+					<li><a href="#">About</a></li>
 				</ul>	
 			</nav>
 			<div class="wrapper">
@@ -40,7 +26,16 @@
 					</div>
 				</div>
 				<div class="right_container">
-					<div class="register"></div>
+					<div class="register">
+						<div class="register_centerer">
+							<p>Username</p>
+							<input class="username"></input>
+							<p>Password</p>
+							<input class="password"</input>
+							<button "submit">Submit</button>
+							<p> Need an account? <span href="">SignUp!</span></p>
+						</div>
+					</div>
 				</div>
 			</div>
 
