@@ -18,6 +18,43 @@
 
 
 	</script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+	<script>
+		  // Initialize Firebase
+		  var config = {
+			    apiKey: "AIzaSyDBzkHdyj2JKv-I56eLR_wvTuI2rRuX31E",
+			    authDomain: "spsbox-7c35c.firebaseapp.com",
+			    databaseURL: "https://spsbox-7c35c.firebaseio.com",
+			    projectId: "spsbox-7c35c",
+			    storageBucket: "spsbox-7c35c.appspot.com",
+			    messagingSenderId: "988426290622"
+		  };
+		  firebase.initializeApp(config);
+	</script>
+
+	<script>
+		function signup(){
+			var email = document.getElementById("signup_email").value;
+			var password = document.getElementById("signup_password").value;
+			console.log(email);
+			console.log(password);
+
+			firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+			   console.log(error.code);
+			   console.log(error.message);
+			});
+
+
+			var rootRef = firebase.database().ref();
+			var usersRef = rootRef.child('users/');
+			var newuserRef = usersRef.push();
+			  newuserRef.set({
+			    user: email
+			});
+			//document.location.href = 'logs.html';
+		}
+	</script>
+
 	<body>
 		<div class="container">
 			<nav>
@@ -29,6 +66,16 @@
 
 			<div id="signupform">
 				<img src="exit.png" id="exitsignup" onClick="exitSignUp()">
+				<div class="signup_wrapper">
+                                        <p>Email</p>
+                                        <input id="signup_email"></input>
+                                        <p>Password</p>
+                                        <input id="signup_password"></input>
+
+					<button class="signup_submit" onClick="signup()">Submit</button>
+
+                                </div>
+
 			</div>
 			<div class="wrapper">
 				<div class="left_container">

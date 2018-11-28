@@ -53,9 +53,7 @@ h1{
 	width: 85%;
 	display: block;
 	margin: auto;
-	background-color: gray;
-}
-#event3{
+	background-color: gray; } #event3{
 	height: 13%;
 	width: 85%;
 	display: block;
@@ -96,6 +94,13 @@ h1{
 }
 
 
+
+/*BUTTONS---------------------------------------*/
+.buttons_wrapper button{
+	margin-right: 2em;
+}
+/*----------------------------------------------*/
+
 #signupform{
 	width: 500px;
 	height: 500px;
@@ -107,6 +112,17 @@ h1{
 	display: none;
 	border-radius: 20px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.devicename{
+    width: 90%;
+    height: 8%;
+}
+
+.serialnum{
+    width: 90%;
+    height: 8%;
 }
 
 #exitsignup{
@@ -128,6 +144,30 @@ h1{
 	display: none;
 	border-radius: 20px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.deviceform_wrapper{
+    height: 70%;
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding-top: center;
+    margin-top: 15%;
+}
+
+#email{
+    width: 90%;
+    height: 8%;
+}
+
+#phonenum{
+    width: 90%;
+    height: 8%;
+}
+
+#text{
+    width: 90%;
+    height: 8%;
 }
 
 #exitdeviceform{
@@ -168,9 +208,20 @@ h1{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.notif_wrapper{
+    height: 70%;
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding-top: center;
+    margin-top: 15%;
+}
+
 #exitnotification{
 	max-width: 10%;
 	max-height: auto;
         float: right;
         padding: 15px;
 }
+
+

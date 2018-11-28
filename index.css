@@ -77,6 +77,26 @@ nav ul li{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.signup_wrapper{
+    height: 70%;
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding-top: center;
+    margin-top: 15%;
+}
+
+#signup_email{
+    width: 90%;
+    height: 8%;
+}
+
+#signup_password{
+    width: 90%;
+    height: 8%;
+}
+
+
 #exitsignup{
 	max-width: 10%;
 	max-height: auto;

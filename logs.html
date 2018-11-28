@@ -45,12 +45,41 @@
 		<div class="container">
 			<div id="deviceform">
 				<img src="exit.png" id="exitdeviceform" onClick="exitExitDevice()">
+				<div class="deviceform_wrapper">
+					<p>Name your device</p>
+					<input class="devicename"></input>
+					<p>Device Serial Number</p>
+					<input class="serialnum"></input>
+
+					<p>Functionality</p>
+
+					<div class="buttons_container">
+						<button class="room">Room</button>
+						<button class="bag">Bag</button>
+						<button class="cabinet">Cabinet</button>
+					</div>
+
+				</div>
+
+
 			</div>
 			<div id="mydevicesform">
 				<img src="exit.png" id="exitmydevicesform" onClick="exitMyDevices()">
 			</div>
 			<div id="notificationform">
-				<img src="exit.png" id="exitnotification" onClick="exitNotificationMethod()">
+
+				<img src="exit.png" id="exitnotification" onClick="exitNotificationMethod()">				
+				<div class="notif_wrapper">
+					<p> What's your preferred way of notification?</p>
+					<p>Email</p>
+					<input id="email" placeholder="Enter Email Here"></input>
+					<p>Phone Number</p>
+					<input id="phonenum" placeholder="Enter Phone Number Here"></input>
+					<p>Text Message</p>
+					<input id="text" placeholder="Enter Phone Number Here"></input>
+					<button id="submit_notif">Submit</button>
+				</div>
+
 			</div>
 
 			<div class="eventlogs_wrapper">

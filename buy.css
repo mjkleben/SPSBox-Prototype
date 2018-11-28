@@ -1,0 +1,122 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.container{
+	width: 100%;
+	height: 800px;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+}
+
+nav{
+	width: 100%;
+	height: 40px; background-color: white;
+	text-align: right;
+}
+
+nav ul li{
+	list-style-type: none;
+	display: inline;
+}
+
+.eventlogs_wrapper{
+	width: 70%;
+	height: 100%;
+	background-color: pink;
+}
+
+.eventlogs{
+	width: 70%;
+	background-color: purple;
+	display: block;
+	margin: auto;
+}
+
+.sps_pic{
+	display: block;
+	margin: auto;
+}
+
+h1{
+	text-align:center;
+	padding-top: 3%;
+}
+
+
+
+.buttons_wrapper{
+	padding-top: 3%;
+	width: 100%;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+}
+
+
+#signupform{
+	width: 500px;
+	height: 500px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	border-radius: 20px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.devicename{
+    width: 90%;
+    height: 8%;
+}
+
+.serialnum{
+    width: 90%;
+    height: 8%;
+}
+
+#exitsignup{
+	max-width: 10%;
+	max-height: auto;
+        float: right;
+        padding: 15px;
+}
+
+
+#deviceform{
+    width: 90%;
+    height: 80%;
+    display: block;
+    margin: auto;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.deviceform_wrapper{
+    height: 70%;
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding-top: center;
+}
+
+#email{
+    width: 90%;
+    height: 8%;
+}
+
+#phonenum{
+    width: 90%;
+    height: 8%;
+}
+
+#text{
+    width: 90%;
+    height: 8%;
+}
+
+
