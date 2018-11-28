@@ -7,6 +7,21 @@
 		<link rel="stylesheet" href="logs.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	</head>
+	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+        <script>
+                  // Initialize Firebase
+                  var config = {
+                            apiKey: "AIzaSyDBzkHdyj2JKv-I56eLR_wvTuI2rRuX31E",
+                            authDomain: "spsbox-7c35c.firebaseapp.com",
+                            databaseURL: "https://spsbox-7c35c.firebaseio.com",
+                            projectId: "spsbox-7c35c",
+                            storageBucket: "spsbox-7c35c.appspot.com",
+                            messagingSenderId: "988426290622"
+                  };
+                  firebase.initializeApp(config);
+        </script>
+
+
 	<script>
 		function showAddDevice(){
 			document.getElementById('deviceform').style.display="block";
@@ -16,8 +31,81 @@
 			document.getElementById('deviceform').style.display="none";	
 		}
 
+		function addDevice(){
+			//Initialize firebase
+			var rootRef = firebase.database().ref();
+			var urlRef = rootRef.child("users/");
+			console.log(firebase.auth().currentUser.email);
+				
+			//Get device serial number and name
+			var device_name = document.getElementById("devicename").value;
+			var device_serialNum = document.getElementById("serialnum").value;
+
+			//Query through all the users
+			urlRef.once("value", function(snapshot) {
+			  snapshot.forEach(function(child) {
+			    console.log(child.key+": "+child.val());
+			    let specificUser = child.key;
+			//Query through each user one by one
+			   var tempChild = rootRef.child("users/" + child.key + "/");
+			tempChild.once("value", function(snapshot){
+				snapshot.forEach(function(child) {
+					console.log(child.key+": " + child.val());
+					if(child.val() === firebase.auth().currentUser.email){
+						console.log("EMAIL FOUND");
+						user = child.val();
+						console.log("THIS CHILD: ", specificUser);
+
+						var tempUser = rootRef.child("users/" + specificUser + "/");
+						
+						  tempUser.update({
+						  	devicename: device_name,
+							deviceSerNum: device_serialNum
+						  });
+
+					}
+
+
+				});});
+			  });
+			});
+		}
+
 		function showMyDevices(){
 			document.getElementById('mydevicesform').style.display="block";
+			                        //Initialize firebase
+                        var rootRef = firebase.database().ref();
+                        var urlRef = rootRef.child("users/");
+                        console.log(firebase.auth().currentUser.email);
+
+                        //Query through all the users
+                        urlRef.once("value", function(snapshot) {
+                          snapshot.forEach(function(child) {
+                            let specificUser = child.key;
+
+
+                        //Query through each user one by one
+                           var tempChild = rootRef.child("users/" + child.key + "/");
+                        tempChild.once("value", function(snapshot){
+                                snapshot.forEach(function(child) {
+                                        if(child.val() === firebase.auth().currentUser.email){
+						console.log(specificUser);
+						var tempUser = rootRef.child("users/" + specificUser + "/");
+
+						 tempUser.once("value", function(snapshot){
+                        			        snapshot.forEach(function(child) {
+								console.log("I FOUND: ", child.key + ": " + child.val());
+								if (child.key === "devicename"){
+									document.getElementById("device1").innerHTML = child.val();
+								}
+							});});
+                                        }
+
+
+                                });});
+                          });
+                        });
+
 		}
 		
 		function exitMyDevices(){
@@ -47,9 +135,9 @@
 				<img src="exit.png" id="exitdeviceform" onClick="exitExitDevice()">
 				<div class="deviceform_wrapper">
 					<p>Name your device</p>
-					<input class="devicename"></input>
+					<input id="devicename"></input>
 					<p>Device Serial Number</p>
-					<input class="serialnum"></input>
+					<input id="serialnum"></input>
 
 					<p>Functionality</p>
 
@@ -58,6 +146,7 @@
 						<button class="bag">Bag</button>
 						<button class="cabinet">Cabinet</button>
 					</div>
+					<button id="adddevice_submit" onClick="addDevice()">Add New Device</button>
 
 				</div>
 
@@ -65,6 +154,9 @@
 			</div>
 			<div id="mydevicesform">
 				<img src="exit.png" id="exitmydevicesform" onClick="exitMyDevices()">
+				<p id="device1"></p>
+				<p id="device2"></p>
+				<p id="device3"></p>
 			</div>
 			<div id="notificationform">
 
