@@ -8,19 +8,18 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	</head>
 	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
-        <script>
-                  // Initialize Firebase
-                  var config = {
-                            apiKey: "AIzaSyDBzkHdyj2JKv-I56eLR_wvTuI2rRuX31E",
-                            authDomain: "spsbox-7c35c.firebaseapp.com",
-                            databaseURL: "https://spsbox-7c35c.firebaseio.com",
-                            projectId: "spsbox-7c35c",
-                            storageBucket: "spsbox-7c35c.appspot.com",
-                            messagingSenderId: "988426290622"
-                  };
-                  firebase.initializeApp(config);
-        </script>
-
+	<script>
+	  // Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyCkpaEJfQBZh1aBufckYMPjI1hiktwsKlA",
+		authDomain: "database-8a74e.firebaseapp.com",
+		databaseURL: "https://database-8a74e.firebaseio.com",
+		projectId: "database-8a74e",
+		storageBucket: "database-8a74e.appspot.com",
+		messagingSenderId: "884370015340"
+	  };
+	  firebase.initializeApp(config);
+	</script>
 
 	<script>
 		function showAddDevice(){
@@ -41,6 +40,11 @@
 			var device_name = document.getElementById("devicename").value;
 			var device_serialNum = document.getElementById("serialnum").value;
 
+/*
+			var pushDevice = rootRef.child('devices/-LSRL0c-5VCRYLZYxIrN/');
+			pushDevice.update({
+				device: "qiofghioogho"	
+			})*/
 			//Query through all the users
 			urlRef.once("value", function(snapshot) {
 			  snapshot.forEach(function(child) {
@@ -48,24 +52,19 @@
 			    let specificUser = child.key;
 			//Query through each user one by one
 			   var tempChild = rootRef.child("users/" + child.key + "/");
+
 			tempChild.once("value", function(snapshot){
 				snapshot.forEach(function(child) {
-					console.log(child.key+": " + child.val());
-					if(child.val() === firebase.auth().currentUser.email){
-						console.log("EMAIL FOUND");
+					if(child.val().toLowerCase() === firebase.auth().currentUser.email.toLowerCase()){
 						user = child.val();
-						console.log("THIS CHILD: ", specificUser);
-
 						var tempUser = rootRef.child("users/" + specificUser + "/");
-						
 						  tempUser.update({
 						  	devicename: device_name,
-							deviceSerNum: device_serialNum
+							deviceSerNum: device_serialNum,
+							user: firebase.auth().currentUser.email
 						  });
 
 					}
-
-
 				});});
 			  });
 			});
@@ -89,17 +88,17 @@
                         tempChild.once("value", function(snapshot){
                                 snapshot.forEach(function(child) {
                                         if(child.val() === firebase.auth().currentUser.email){
-						console.log(specificUser);
-						var tempUser = rootRef.child("users/" + specificUser + "/");
+											console.log(specificUser);
+											var tempUser = rootRef.child("users/" + specificUser + "/");
 
-						 tempUser.once("value", function(snapshot){
-                        			        snapshot.forEach(function(child) {
-								console.log("I FOUND: ", child.key + ": " + child.val());
-								if (child.key === "devicename"){
-									document.getElementById("device1").innerHTML = child.val();
-								}
-							});});
-                                        }
+											tempUser.once("value", function(snapshot){
+																snapshot.forEach(function(child) {
+													console.log("I FOUND: ", child.key + ": " + child.val());
+													if (child.key === "devicename"){
+														document.getElementById("device1").innerHTML = child.val();
+													}
+												});});
+										}
 
 
                                 });});

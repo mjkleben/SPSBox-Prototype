@@ -20,16 +20,16 @@
 	</script>
 	<script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
 	<script>
-		  // Initialize Firebase
-		  var config = {
-			    apiKey: "AIzaSyDBzkHdyj2JKv-I56eLR_wvTuI2rRuX31E",
-			    authDomain: "spsbox-7c35c.firebaseapp.com",
-			    databaseURL: "https://spsbox-7c35c.firebaseio.com",
-			    projectId: "spsbox-7c35c",
-			    storageBucket: "spsbox-7c35c.appspot.com",
-			    messagingSenderId: "988426290622"
-		  };
-		  firebase.initializeApp(config);
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyCkpaEJfQBZh1aBufckYMPjI1hiktwsKlA",
+		authDomain: "database-8a74e.firebaseapp.com",
+		databaseURL: "https://database-8a74e.firebaseio.com",
+		projectId: "database-8a74e",
+		storageBucket: "database-8a74e.appspot.com",
+		messagingSenderId: "884370015340"
+	};
+	firebase.initializeApp(config);
 	</script>
 
 	<script>
@@ -38,6 +38,7 @@
 			var password = document.getElementById("signup_password").value;
 			console.log(email);
 			console.log(password);
+			
 
 			firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
 			   console.log(error.code);
@@ -51,6 +52,11 @@
 			  newuserRef.set({
 			    user: email
 			});
+			var ahh = rootRef.child('SPSDevices/');
+			ahh.update({
+				device: "qiofghioogho"
+			});
+
 			//document.location.href = 'logs.html';
 		}
 	</script>
